@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import mapStatusHTTP from '../../utils/mapStatusHTTP';
 import ordersService from '../services/ordersService';
 
-const listOrders = async (_req: Request, res: Response): Promise<Response> => {
+const listOrders = async (req: Request, res: Response): Promise<Response> => {
   const serviceResponse = await ordersService.lOrders();
   if (serviceResponse.status !== 'SUCCESSFUL') {
     return res.status(mapStatusHTTP(serviceResponse.status)).json(serviceResponse.data);
